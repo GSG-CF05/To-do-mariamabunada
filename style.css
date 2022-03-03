@@ -76,11 +76,15 @@ overflow-y: auto;
     cursor: default;
 }
 .todolist li span{
-    position: absolute;
-    right: 5px;
+    display: inline;
+    /*flex-direction: row-reverse;
+    /*right: 5px;
+   /* position: absolute;
+    right: 5px;*/
 }
 
 .todolist li span i{
+    margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
 }
