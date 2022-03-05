@@ -27,7 +27,7 @@ function showTasks() {
     }
     let newTask=""
     arrOfTasks.forEach((element,index) => {
-        newTask+= `<li>${element}<span><i class="fas fa-regular fa-pen"></i></span><span onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`
+        newTask+= `<li>${element}<span onclick="editTask(${index})"><i class="fas fa-regular fa-pen"></i></span><span onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`
     });
     listOfTasks.innerHTML=newTask // add new task inside ul tasks
     inputBox.value=""//emptify the input box after adding the task
@@ -42,3 +42,12 @@ function deleteTask(index) {
     showTasks() // calling the function
 }
 
+function editTask(index) {
+    let getLocalStorage=localStorage.getItem("new task")
+    arrOfTasks=JSON.parse(getLocalStorage)
+    // Replace 1 array element at index with item 
+   let newValue=inputBox.value
+   arrOfTasks.splice(index,1,newValue)
+   localStorage.setItem("new task",JSON.stringify(arrOfTasks)) 
+    showTasks() 
+}
